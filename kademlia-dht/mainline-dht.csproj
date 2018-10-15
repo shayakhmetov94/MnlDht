@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1E975CF-D663-41C6-85F8-A32B38B717A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mainline_dht</RootNamespace>
+    <AssemblyName>mainline_dht</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Bittorrent\Bencoder.cs" />
+    <Compile Include="Base\Bittorrent\InvalidFieldException.cs" />
+    <Compile Include="Base\Bucket\Bucket.cs" />
+    <Compile Include="Base\Bucket\BucketList.cs" />
+    <Compile Include="Base\ContactNode.cs" />
+    <Compile Include="Base\HashTable.cs" />
+    <Compile Include="Base\HashTableConfig.cs" />
+    <Compile Include="Base\Message\Builder.cs" />
+    <Compile Include="Base\Message\MalformedPacketException.cs" />
+    <Compile Include="Base\Message\MnlMessage.cs" />
+    <Compile Include="Base\Query\InfoHashQueryHistoryEntry.cs" />
+    <Compile Include="Base\Query\InfoHashQueryHistory.cs" />
+    <Compile Include="Base\Storage\IInfoHashStorage.cs" />
+    <Compile Include="Base\Storage\MemoryInfoHashStorage.cs" />
+    <Compile Include="Base\NodeServer.cs" />
+    <Compile Include="Base\Node.cs" />
+    <Compile Include="Base\Id.cs" />
+    <Compile Include="Base\Storage\Token\TokenStorage.cs" />
+    <Compile Include="Base\Storage\Token\Token.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fluentShcuelder\Library\FluentSheduler.csproj">
+      <Project>{434fed39-4ec1-4797-bb2d-246432b3d4fd}</Project>
+      <Name>FluentSheduler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
